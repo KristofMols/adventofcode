@@ -19,4 +19,4 @@ for _, v in pairs(lines) do
     sum = sum + calculate_total_fuel(tonumber(v)) 
 end
 
-print('DAY 2.2 : ' .. sum)
+print('DAY 1.2 : ' .. sum)
