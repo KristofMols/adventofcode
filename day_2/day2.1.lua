@@ -12,9 +12,11 @@ end
 
 function exec_opcode(tab, opcode, first, second, res)
     if opcode == '1' then
-        tab[res + 1] = math.floor(tab[first + 1] + tab[second + 1])
+        local result = math.floor(tab[first + 1] + tab[second + 1])
+        tab[res + 1] = result
     elseif opcode == '2' then
-        tab[res + 1] = math.floor(tab[first + 1] * tab[second + 1])
+        local result = math.floor(tab[first + 1] * tab[second + 1])
+        tab[res + 1] = result
     elseif opcode == '99' then
         print("STOP")
     else
@@ -29,12 +31,14 @@ for _, line in pairs(lines) do
     local items = split(line, "[^,]*")
     local operation_count = 0
 
-    print(table.concat(items, ","))
+    items[2] = 12
+    items[3] = 2
 
     while operation_count <= #items do
-        opcode, first, second, res = get_4_items(items, 0)
+        opcode, first, second, res = get_4_items(items, operation_count)
         exec_opcode(items, opcode, first, second, res)
-        print(table.concat(items, ","))
         operation_count = operation_count + 4
     end
+
+    print(items[1])
 end
