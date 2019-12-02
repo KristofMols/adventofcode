@@ -1,4 +1,4 @@
-require "file"
+require "common.file"
 
 function split(str, pat)
     local tbl = {}
@@ -22,7 +22,7 @@ function exec_opcode(tab, opcode, first, second, res)
     end
 end
 
-local file = 'day2-input.txt'
+local file = 'day_2/day2-input.txt'
 local lines = lines_from(file)
 
 for _, line in pairs(lines) do
