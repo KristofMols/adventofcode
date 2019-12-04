@@ -1,5 +1,5 @@
-local low_range = 172930
-local high_range = 683082
+low_range = 172930
+high_range = 683082
 
 function check_increasing(num)
     local last_digit = nil
@@ -27,7 +27,7 @@ end
 
 local total_matches = 0
 
-for count = 172930, 683082, 1 do
+for count = low_range, high_range, 1 do
     if check_increasing(count) and check_multiple_digit(count) then
         total_matches = total_matches + 1
     end

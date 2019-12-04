@@ -11,7 +11,7 @@ function check_double_count(num)
     return false
 end
 
-for count = 172930, 683082, 1 do
+for count = low_range, high_range, 1 do
     if check_increasing(count) and check_double_count(count) then
         total_matches = total_matches + 1
     end
