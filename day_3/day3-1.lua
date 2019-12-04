@@ -1,7 +1,6 @@
 require "common.file"
 require "common.util"
 require "day_3.coordinate"
-inspect = require "inspect"
 
 local file = 'day_3/day3-input.txt'
 local lines = lines_from(file)
