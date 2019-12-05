@@ -1,5 +1,4 @@
 require "common.file"
-require "common.util"
 
 local file = 'day_1/day1-input.txt'
 local lines = lines_from(file)
