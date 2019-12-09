@@ -31,4 +31,4 @@ end
 create_star_map()
 calculate_distance()
 
-print("DAY 6 : " .. total_count)
+print("DAY 6.1 : " .. total_count)
