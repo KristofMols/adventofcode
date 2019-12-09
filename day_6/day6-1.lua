@@ -24,6 +24,10 @@ function calculate_distance()
     end
 end
 
+function get_star_map()
+    return star_map
+end
+
 create_star_map()
 calculate_distance()
 
