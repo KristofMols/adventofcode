@@ -1,0 +1,22 @@
+local function permgen(a, n)
+    if n == 0 then
+        coroutine.yield(a)
+    else
+        for i = 1, n do
+            a[n], a[i] = a[i], a[n]
+
+            permgen(a, n - 1)
+
+            a[n], a[i] = a[i], a[n]
+        end
+    end
+end
+
+function perm(a)
+    local n = #a
+    local co = coroutine.create(function() permgen(a, n) end)
+    return function()
+        local _, res = coroutine.resume(co)
+        return res
+    end
+end
