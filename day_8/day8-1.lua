@@ -10,6 +10,10 @@ local layers = {}
 local current_index = 1
 local lowest_count = nil
 
+function get_layers()
+    return layers
+end
+
 while current_index <= #lines[1] do
     layers[#layers + 1] = ImageLayer:new(lines[1]:sub(current_index, current_index + (image_with * image_height) - 1))
     current_index = current_index + (image_with * image_height)
