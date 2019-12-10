@@ -9,16 +9,14 @@ function Present:new(dimensions)
 
     local dim = split(dimensions, "[^x]*")
 
-    gift.l = dim[1]
-    gift.w = dim[2]
-    gift.h = dim[3]
+    gift.l = tonumber(dim[1])
+    gift.w = tonumber(dim[2])
+    gift.h = tonumber(dim[3])
 
     return gift
 end
 
-function Present:print()
-    print('(' .. self.l .. 'x' .. self.w .. 'x' .. self.h .. ')')
-end
+function Present:get_data() return self.l, self.w, self.h end
 
 function Present:calculate_wrapping()
     local side_a = self.l * self.w
@@ -30,13 +28,13 @@ function Present:calculate_wrapping()
     return (2 * side_a + 2 * side_b + 2 * side_c) + smallest
 end
 
+local function compare(a, b) return a < b end
+
 function Present:calculate_ribbon()
-    local first = math.min(self.l, self.h)
-    local second = math.min(self.w, self.h)
+    local tab = {self.l, self.w, self.h}
+    table.sort(tab, compare)
 
-    return first * 2 + second * 2
+    return tab[1] * 2 + tab[2] * 2
 end
 
-function Present:calculate_bow()
-    return self.l * self.w * self.h
-end
+function Present:calculate_bow() return self.l * self.w * self.h end
