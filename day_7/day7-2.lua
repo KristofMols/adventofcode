@@ -2,22 +2,17 @@ require "day_7.day7-1"
 
 for phases in perm{5, 6, 7, 8, 9} do
     for i = 1, 5, 1 do
-        for _, phase in ipairs({9,7,8,5,6}) do
-            calculate_program(phase)
+        local lines = lines_from(file)
+        local items = split_num(lines[1], "[^,]*")
 
-            stored_value = result
-            operation_count = 0
-            input_count = 0
-        end
+        local amp = Amplifier:new(phases, items, result)
+
+        amp:execute()
+
+        local result = amp:get_result()
+        
+        if result > best_result then best_result = result end
     end
-
-    if result > best_result then best_result = result end
-    
-    operation_count = 0
-    stored_value = 0
-    current_input = nil
-    input_count = 0
-    result = nil
 end
 
 print("DAY 7.2 : " .. best_result)
