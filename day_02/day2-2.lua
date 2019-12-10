@@ -1,7 +1,7 @@
 require "common.file"
-require "day_2.present"
+require "day_02.present"
 
-local file = 'day_2/day2-input.txt'
+local file = 'day_02/day2-input.txt'
 local lines = lines_from(file)
 local total_ribbon = 0
 local total_bow = 0

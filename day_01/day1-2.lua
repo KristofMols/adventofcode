@@ -1,6 +1,6 @@
 require "common.file"
 
-local file = 'day_1/day1-input.txt'
+local file = 'day_01/day1-input.txt'
 local lines = lines_from(file)
 
 local floor = 0
