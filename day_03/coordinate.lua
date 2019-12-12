@@ -1,6 +1,6 @@
 Coordinate = {
-    x = 0, 
-    y = 0, 
+    x = 0,
+    y = 0,
     amount = 0
 }
 
