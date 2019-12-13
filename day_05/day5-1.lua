@@ -9,7 +9,7 @@ local EXCLUDED = {"ab", "cd", "pq", "xy"}
 
 function check_vowel(s1) return #s1:gsub("[^" .. VOWELS .. "]", "") > 2 end
 
-function check_double(s1, s2) return select(2, s1:gsub(s2 .. s2, "")) end
+function check_double(s1, s2) return select(2, s1:gsub(s2, "")) end
 
 function contains_excluded(s1)
     for _, s2 in pairs(EXCLUDED) do
