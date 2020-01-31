@@ -1,8 +1,4 @@
-LogicGate = {
-    executed = false,
-    command = "",
-    gates = {}
-}
+LogicGate = {executed = false, command = "", gates = {}}
 
 LogicGate.__index = LogicGate
 
@@ -17,7 +13,7 @@ end
 
 function LogicGate:execute(new_gates)
     self.gates = new_gates
-    
+
     local first, second, gate = string.match(self.command, "^(%a*) AND (%a*) %-> (%a*)$")
     if first ~= nil and second ~= nil and gate ~= nil and self.gates[first] ~= nil and self.gates[second] ~= nil then
         self.gates[gate] = self.gates[first] & self.gates[second]
@@ -67,14 +63,10 @@ function LogicGate:execute(new_gates)
     end
 end
 
-function LogicGate:is_executed()
-    return self.executed
-end
+function LogicGate:is_executed() return self.executed end
 
-function LogicGate:get_command()
-    return self.command
-end
+function LogicGate:get_command() return self.command end
 
-function LogicGate:get_gates()
-    return self.gates
-end
+function LogicGate:get_gates() return self.gates end
+
+function LogicGate:reset_state() self.executed = false end
