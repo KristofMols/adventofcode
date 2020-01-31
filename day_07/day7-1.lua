@@ -6,24 +6,26 @@ local lines = lines_from(file)
 
 local gates = {}
 local commands = {}
-local command_counter = 1
 
-for _, line in pairs(lines) do
-    commands[command_counter] = LogicGate:new(line)
-    command_counter = command_counter + 1
-end
+for _, line in pairs(lines) do commands[#commands + 1] = LogicGate:new(line) end
 
-while #commands > 0 do
+function has_executables()
     for k, v in pairs(commands) do
-        gates = v:execute(gates)
-        if v:is_executed() then 
-            commands[k] = nil
+        if not v:is_executed() then
+            return true 
         end
     end
 
-    print(#commands)
+    return false
 end
 
-for k, v in pairs(gates) do print(k, v) end
+while has_executables() do
+    for k, v in pairs(commands) do
+        if not v:is_executed() then
+            v:execute(gates)
+            gates = v:get_gates()
+        end
+    end
+end
 
-print("DAY 7.1", lines['a'])
+print("DAY 7.1", gates['a'])
