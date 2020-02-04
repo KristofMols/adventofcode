@@ -12,10 +12,12 @@ local chars_to_escape = {
     {regex = "\\\"", length = 1}
 }
 
+function get_total_count() return total_count end
+
 function count_line_value(line)
     local line_total_count = line:len()
     local line_memory_count = line_total_count - 2
-    
+
     line = line:sub(2, line:len() - 1)
 
     for k, v in pairs(chars_to_escape) do
