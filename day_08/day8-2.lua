@@ -8,8 +8,8 @@ local total_count_part_1 = get_total_count()
 local total_count = 0
 
 local chars_to_escape = {
-    {regex = "\\", length = 1}, 
-    {regex = "\"", length = 1}
+    { regex = "\\", length = 1 }, 
+    { regex = "\"", length = 1 }
 }
 
 function count_line_value(line)

@@ -7,9 +7,9 @@ local total_count = 0
 local memory_count = 0
 
 local chars_to_escape = {
-    {regex = "\\x%x%x", length = 3}, 
-    {regex = "\\\\", length = 1},
-    {regex = "\\\"", length = 1}
+    { regex = "\\x%x%x", length = 3 }, 
+    { regex = "\\\\", length = 1 },
+    { regex = "\\\"", length = 1 }
 }
 
 function get_total_count() return total_count end
