@@ -18,14 +18,20 @@ M.each(
     lines,
     function(line)
         M.each(
-            split(line, '[^, ]*'),
+            split(line, '[^,\\w]*'),
             function(item)
                 local amount = split(item, "[^R|L]")[1]
+
+                print(item)
+
                 if item:find('^L') then
                     curr_coord:go_left (amount)
+                    -- io.write('L')
                 elseif item:find('^R') then
                     curr_coord:go_right(amount)
+                    -- io.write('R')
                 end
+                -- io.write(' -> ' .. amount .. '\n')
             end
         )
     end
